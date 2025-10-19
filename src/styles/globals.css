@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+:root {
+--background: 220 15% 97%;
+--foreground: 220 15% 15%;
+--muted: 220 10% 95%;
+--muted-foreground: 220 8% 45%;
+--popover: 220 15% 100%;
+--popover-foreground: 220 15% 15%;
+--card: 220 15% 100%;
+--card-foreground: 220 15% 15%;
+--border: 220 13% 91%;
+--input: 220 13% 91%;
+--primary: 220 90% 56%;
+--primary-foreground: 0 0% 98%;
+--secondary: 220 10% 95%;
+--secondary-foreground: 220 15% 25%;
+--accent: 280 100% 70%;
+--accent-foreground: 0 0% 98%;
+--destructive: 0 84% 60%;
+--destructive-foreground: 0 0% 98%;
+--ring: 220 90% 56%;
+--radius: 0.75rem;
+--chart-1: 220 90% 56%;
+--chart-2: 200 95% 45%;
+--chart-3: 280 100% 70%;
+--chart-4: 142 71% 45%;
+--chart-5: 38 92% 50%;
+--sidebar-background: 220 15% 98%;
+--sidebar-foreground: 220 15% 25%;
+--sidebar-primary: 220 90% 56%;
+--sidebar-primary-foreground: 0 0% 98%;
+--sidebar-accent: 220 10% 95%;
+--sidebar-accent-foreground: 220 15% 25%;
+--sidebar-border: 220 13% 91%;
+--sidebar-ring: 220 90% 56%;
+}
+
+.dark {
+--background: 220 15% 8%;
+--foreground: 220 15% 95%;
+--muted: 220 10% 15%;
+--muted-foreground: 220 8% 65%;
+--popover: 220 15% 8%;
+--popover-foreground: 220 15% 95%;
+--card: 220 15% 10%;
+--card-foreground: 220 15% 95%;
+--border: 220 13% 20%;
+--input: 220 13% 20%;
+--primary: 220 90% 56%;
+--primary-foreground: 0 0% 98%;
+--secondary: 220 10% 15%;
+--secondary-foreground: 220 15% 85%;
+--accent: 280 100% 70%;
+--accent-foreground: 0 0% 10%;
+--destructive: 0 84% 60%;
+--destructive-foreground: 0 0% 98%;
+--ring: 220 90% 56%;
+--sidebar-background: 220 15% 8%;
+--sidebar-foreground: 220 15% 85%;
+--sidebar-primary: 220 90% 56%;
+--sidebar-primary-foreground: 0 0% 98%;
+--sidebar-accent: 220 10% 15%;
+--sidebar-accent-foreground: 220 15% 85%;
+--sidebar-border: 220 13% 20%;
+--sidebar-ring: 220 90% 56%;
+}
+}
+
+@layer base {
+* {
+@apply border-border;
+}
+body {
+@apply bg-background text-foreground font-sans antialiased;
+}
+}
+
+@layer components {
+.sri-gradient {
+@apply bg-gradient-to-br from-psychology-primary/10 to-psychology-accent/10;
+}
+
+.sri-card {
+@apply bg-card/80 backdrop-blur-sm border border-border/50 rounded-xl shadow-lg;
+}
+
+.sri-section {
+@apply py-12 px-4 sm:px-6 lg:px-8;
+}
+
+.sri-heading {
+@apply text-3xl font-bold tracking-tight text-foreground sm:text-4xl;
+}
+
+.sri-subheading {
+@apply text-xl font-semibold text-foreground;
+}
+
+.sri-text {
+@apply text-muted-foreground leading-relaxed;
+}
+
+.sri-button-primary {
+@apply bg-psychology-primary hover:bg-psychology-primary/90 text-white font-medium px-6 py-3 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg;
+}
+
+.sri-button-secondary {
+@apply bg-psychology-secondary hover:bg-psychology-secondary/90 text-white font-medium px-6 py-3 rounded-lg transition-all duration-200;
+}
+
+.sri-input {
+@apply w-full px-4 py-3 border border-input rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-psychology-primary focus:border-transparent transition-all duration-200;
+}
+
+.question-card {
+@apply sri-card p-6 space-y-4 animate-fade-in;
+}
+
+.scale-option {
+@apply flex items-center justify-between p-3 border border-border rounded-lg hover:bg-muted/50 transition-colors cursor-pointer;
+}
+
+.scale-option.selected {
+@apply bg-psychology-primary/10 border-psychology-primary;
+}
+
+.progress-bar {
+@apply h-2 bg-muted rounded-full overflow-hidden;
+}
+
+.progress-fill {
+@apply h-full bg-gradient-to-r from-psychology-primary to-psychology-accent transition-all duration-500 ease-out;
+}
+
+.dimension-card {
+@apply sri-card p-4 text-center space-y-2;
+}
+
+.radar-chart {
+@apply w-full h-64 sri-card p-4;
+}
+
+.result-badge {
+@apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+}
+
+.result-badge.low {
+@apply bg-psychology-success/10 text-psychology-success;
+}
+
+.result-badge.moderate {
+@apply bg-yellow-100 text-yellow-800;
+}
+
+.result-badge.high {
+@apply bg-psychology-warning/10 text-psychology-warning;
+}
+
+.result-badge.very-high {
+@apply bg-psychology-danger/10 text-psychology-danger;
+}
+}
+
+@layer utilities {
+.text-balance {
+text-wrap: balance;
+}
+}

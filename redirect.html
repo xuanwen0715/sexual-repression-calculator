@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>项目被滥用说明</title>
+  <style>
+    body {
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      height: 100vh; background: #f5f5f5;
+      font-family: sans-serif;
+      margin: 0;
+    }
+    .box {
+      background: white; padding: 2rem;
+      border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      max-width: 500px; text-align: center;
+      width: 90%;
+    }
+    button { 
+      padding: 0.75rem 1.5rem; 
+      margin-top: 1rem; 
+      cursor: pointer; 
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .countdown {
+      font-weight: bold;
+      color: #ff6b6b;
+    }
+    .debug-info {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #f8f9fa;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      text-align: left;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>⚠️ 项目被滥用说明</h1>
+    <p>我们发现此部署链接正在被他人倒卖以牟取利益。</p>
+    <p>本项目为<strong>完全开源免费</strong>的项目，请勿付费购买！</p>
+    <p>将在 <span id="countdown" class="countdown">5</span> 秒后自动跳转到原始项目地址...</p>
+    <button onclick="window.location.href='https://github.com/banlanzs/Sexual-Repression-Calculator'">立即跳转到GitHub项目</button>
+    
+    <div class="debug-info" id="debug-info">
+      调试信息将在这里显示...
+    </div>
+  </div>
+
+  <script>
+    // 添加调试信息
+    const debugInfo = document.getElementById('debug-info');
+    debugInfo.textContent = `当前时间: ${new Date().toISOString()}\n`;
+    debugInfo.textContent += `用户代理: ${navigator.userAgent}\n`;
+    debugInfo.textContent += `页面URL: ${window.location.href}\n`;
+    
+    let count = 5;
+    const el = document.getElementById('countdown');
+    const timer = setInterval(() => {
+      count--;
+      el.textContent = count;
+      if (count <= 0) {
+        clearInterval(timer);
+        debugInfo.textContent += `\n正在跳转到: https://github.com/banlanzs/Sexual-Repression-Calculator`;
+        window.location.href = 'https://github.com/banlanzs/Sexual-Repression-Calculator';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
