@@ -9,7 +9,7 @@ export default defineConfig({
   },
   source: {
     entry: {
-      index: "./src/main.tsx",
+      index: "src/main.tsx",
     },
   },
   output: {
@@ -18,8 +18,8 @@ export default defineConfig({
     },
     legalComments: "none",
     copy: [
-      { from: "./redirect.html", to: "redirect.html" },  // 确保 redirect.html 被复制到输出目录
-      { from: "./functions/_middleware.js", to: "_middleware.js" },  // 确保全局 _middleware.js 被复制到输出目录
+      { from: "redirect.html", to: "redirect.html" },
+      { from: "functions/_middleware.js", to: "_middleware.js" },
     ],
   },
   resolve: {
