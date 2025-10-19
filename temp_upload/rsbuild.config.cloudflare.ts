@@ -18,8 +18,8 @@ export default defineConfig({
     },
     legalComments: "none",
     copy: [
-      { from: "_routes.json", to: "_routes.json" },
-      { from: "functions/_middleware.js", to: "_middleware.js" },
+      { from: "./redirect.html", to: "redirect.html" },  // 确保 redirect.html 被复制到输出目录
+      { from: "./functions/_middleware.js", to: "_middleware.js" },  // 确保全局 _middleware.js 被复制到输出目录
     ],
   },
   resolve: {
